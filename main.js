@@ -25,22 +25,25 @@ class Wagon {
         this.passenger = []
     }
 
-    getAvailableSeatCount() {
+      getAvailableSeatCount() {
         if (this.passenger.length <= 2) {
             return this.capacity - this.passenger.length
         } else {
             return 0
+        return (this.capacity - this.passenger.length)
         }
     }
 
     join (traveler) {
         if (this.getAvailableSeatCount () == 0) {
            return 'no space left' 
+        if (this.getAvailableSeatCount () <= 0) {
+           return 'Wagon is full.' 
         } else {
         return this.passenger.push (traveler)
         }
-    }
-
+   } 
+            
     shouldQuarantine () {
         const sick = this.passenger.some (passenger =>
             passenger.isHealthy === false)
