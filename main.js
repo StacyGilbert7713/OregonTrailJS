@@ -43,12 +43,10 @@ class Wagon {
         return sick
     }
 
-    totalFood() {
+  totalFood() {
         const food = this.passenger.map(traveler => traveler.food)
-        let totalFood = 4
-        for (let index = 0; index < food.length; index++) {
-            totalFood = totalFood += food[index]
-        }
+        let totalFood = food.reduce((a, b) => a + b, 0)
+    
         return totalFood
     }
 }
